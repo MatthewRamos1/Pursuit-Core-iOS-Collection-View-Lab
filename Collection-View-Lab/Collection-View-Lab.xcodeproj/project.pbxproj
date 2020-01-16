@@ -18,6 +18,7 @@
 		0C540D1823D0C40300358403 /* Bundle + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C540D1723D0C40300358403 /* Bundle + Extensions.swift */; };
 		0C540D1A23D0C4FA00358403 /* CountryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C540D1923D0C4FA00358403 /* CountryData.swift */; };
 		0C540D1C23D0C89200358403 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C540D1B23D0C89200358403 /* CountryCell.swift */; };
+		0C540D1E23D0CE4E00358403 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C540D1D23D0CE4E00358403 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		0C540D1723D0C40300358403 /* Bundle + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle + Extensions.swift"; sourceTree = "<group>"; };
 		0C540D1923D0C4FA00358403 /* CountryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryData.swift; sourceTree = "<group>"; };
 		0C540D1B23D0C89200358403 /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
+		0C540D1D23D0CE4E00358403 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 			children = (
 				0C4CB8A623CE756A007D277F /* AppDelegate.swift */,
 				0C4CB8A823CE756A007D277F /* SceneDelegate.swift */,
+				0C540D1D23D0CE4E00358403 /* DetailViewController.swift */,
 				0C4CB8AA23CE756A007D277F /* ViewController.swift */,
 				0C540D1923D0C4FA00358403 /* CountryData.swift */,
 				0C540D1B23D0C89200358403 /* CountryCell.swift */,
@@ -165,6 +168,7 @@
 				0C540D1823D0C40300358403 /* Bundle + Extensions.swift in Sources */,
 				0C4CB8A723CE756A007D277F /* AppDelegate.swift in Sources */,
 				0C4CB8A923CE756A007D277F /* SceneDelegate.swift in Sources */,
+				0C540D1E23D0CE4E00358403 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
