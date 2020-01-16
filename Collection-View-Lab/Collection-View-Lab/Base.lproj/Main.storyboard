@@ -96,6 +96,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Countries" id="OpX-gX-IfG"/>
+                    <connections>
+                        <outlet property="collectionView" destination="cVB-Un-Igh" id="rlF-Gj-9TK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

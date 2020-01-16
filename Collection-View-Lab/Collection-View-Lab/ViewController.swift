@@ -9,12 +9,27 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var countries = [Country]()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        collectionView.dataSource = self
+        collectionView.delegate
+        countries = Country.getCountries()
     }
 
 
+}
+
+extension ViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        countries.count
+    }
+    
+    
 }
 
