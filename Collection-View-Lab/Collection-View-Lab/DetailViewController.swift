@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ImageKit
 
 class DetailViewController: UIViewController {
     
@@ -18,6 +19,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUI()
         
     }
     
@@ -25,6 +27,15 @@ class DetailViewController: UIViewController {
         if let detailCountry = country {
             capitalLabel.text = detailCountry.capital
             populationLabel.text = detailCountry.populationFormatter()
+            flagImage.getImage(with: detailCountry.flagURL) { [weak self] (result) in
+                switch result {
+                case .failure:
+                    self?.flagImage.image = UIImage(systemName: "xmark.icloud")
+                case .success(let image):
+                    self?.flagImage.image = image
+                }
+            }
+            
         }
     }
 }

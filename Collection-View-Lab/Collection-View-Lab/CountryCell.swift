@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ImageKit
 
 class CountryCell: UICollectionViewCell {
     
@@ -19,5 +20,17 @@ class CountryCell: UICollectionViewCell {
         countryNameLabel.text = country.name
         capitalLabel.text = country.capital
         populationLabel.text = country.populationFormatter()
+        flagImage.getImage(with: country.flagURL) { [weak self] (result) in
+            switch result {
+            case .failure:
+                DispatchQueue.main.async {
+                    self?.flagImage.image = UIImage(systemName: "xmark.icloud")
+                }
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self?.flagImage.image = image
+                }
+            }
+        }
     }
 }

@@ -11,15 +11,23 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
-    var countries = [Country]()
+    var countries = [Country]() {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    var originalCountries = [Country]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
+        searchBar.delegate = self
         countries = Country.getCountries()
+        originalCountries = Country.getCountries()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -47,16 +55,21 @@ extension ViewController: UICollectionViewDataSource {
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let interItemSpacing: CGFloat = 10
-        let maxWidth = UIScreen.main.bounds.size.width
-        let numberOfItems: CGFloat = 3
-        let totalSpacing: CGFloat = numberOfItems * interItemSpacing
-        let itemWidth: CGFloat = (maxWidth - totalSpacing) / numberOfItems
         
-        return CGSize(width: itemWidth, height: itemWidth)
+        return CGSize(width: 200 , height: 220)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
+    }
+}
+
+extension ViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchQuery = searchBar.text, !searchQuery.isEmpty else {
+            countries = originalCountries
+            return
+        }
+        countries = originalCountries .filter{ $0.name.contains(searchQuery)}
     }
 }
