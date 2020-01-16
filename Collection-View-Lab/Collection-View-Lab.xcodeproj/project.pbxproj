@@ -17,6 +17,7 @@
 		0C540D1623D0C3E500358403 /* countryData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C540D1523D0C3E500358403 /* countryData.json */; };
 		0C540D1823D0C40300358403 /* Bundle + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C540D1723D0C40300358403 /* Bundle + Extensions.swift */; };
 		0C540D1A23D0C4FA00358403 /* CountryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C540D1923D0C4FA00358403 /* CountryData.swift */; };
+		0C540D1C23D0C89200358403 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C540D1B23D0C89200358403 /* CountryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		0C540D1523D0C3E500358403 /* countryData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = countryData.json; sourceTree = "<group>"; };
 		0C540D1723D0C40300358403 /* Bundle + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle + Extensions.swift"; sourceTree = "<group>"; };
 		0C540D1923D0C4FA00358403 /* CountryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryData.swift; sourceTree = "<group>"; };
+		0C540D1B23D0C89200358403 /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				0C4CB8A823CE756A007D277F /* SceneDelegate.swift */,
 				0C4CB8AA23CE756A007D277F /* ViewController.swift */,
 				0C540D1923D0C4FA00358403 /* CountryData.swift */,
+				0C540D1B23D0C89200358403 /* CountryCell.swift */,
 				0C4CB8AC23CE756A007D277F /* Main.storyboard */,
 				0C4CB8AF23CE756C007D277F /* Assets.xcassets */,
 				0C540D1723D0C40300358403 /* Bundle + Extensions.swift */,
@@ -158,6 +161,7 @@
 			files = (
 				0C4CB8AB23CE756A007D277F /* ViewController.swift in Sources */,
 				0C540D1A23D0C4FA00358403 /* CountryData.swift in Sources */,
+				0C540D1C23D0C89200358403 /* CountryCell.swift in Sources */,
 				0C540D1823D0C40300358403 /* Bundle + Extensions.swift in Sources */,
 				0C4CB8A723CE756A007D277F /* AppDelegate.swift in Sources */,
 				0C4CB8A923CE756A007D277F /* SceneDelegate.swift in Sources */,

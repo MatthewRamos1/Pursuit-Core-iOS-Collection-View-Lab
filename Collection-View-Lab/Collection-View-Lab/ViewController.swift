@@ -18,7 +18,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
-        collectionView.delegate
         countries = Country.getCountries()
     }
 
@@ -28,6 +27,15 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         countries.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "countryCell", for: indexPath) as? CountryCell else {
+            fatalError("Couldn't typecast as CountryCell")
+        }
+            let country = countries[indexPath.row]
+            cell.configureCell(country: country)
+        return cell
     }
     
     

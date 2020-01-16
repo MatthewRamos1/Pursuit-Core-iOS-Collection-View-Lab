@@ -30,7 +30,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Tp5-zT-Tbj">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="countryCell" id="Tp5-zT-Tbj" customClass="CountryCell" customModule="Collection_View_Lab" customModuleProvider="target">
                                         <rect key="frame" x="64" y="0.0" width="286" height="252"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Psi-d3-ebB">
@@ -77,6 +77,10 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="286" height="252"/>
                                         <connections>
+                                            <outlet property="capitalLabel" destination="G8D-Mv-zuv" id="779-6d-Q5i"/>
+                                            <outlet property="countryNameLabel" destination="Ggg-MF-g2U" id="ZSb-tD-IZB"/>
+                                            <outlet property="flagImage" destination="0B1-wB-gW4" id="oix-Or-6VO"/>
+                                            <outlet property="populationLabel" destination="Fvl-9G-hPR" id="YuY-ht-vAV"/>
                                             <segue destination="fJc-bj-NDK" kind="show" id="dW5-iH-HWP"/>
                                         </connections>
                                     </collectionViewCell>
