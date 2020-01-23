@@ -15,7 +15,9 @@ class ViewController: UIViewController {
     
     var countries = [Country]() {
         didSet {
-            collectionView.reloadData()
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         }
     }
     var originalCountries = [Country]()
@@ -26,8 +28,7 @@ class ViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         searchBar.delegate = self
-        countries = Country.getCountries()
-        originalCountries = Country.getCountries()
+        getCountries()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -37,6 +38,17 @@ class ViewController: UIViewController {
         detailVC.country = countries[indexPath.row]
     }
     
+    private func getCountries() {
+        CountryAPIClient.fetchCountries{ [weak self] (result) in
+            switch result {
+            case .failure(let appError):
+                
+            case .success(let countries):
+                self?.countries = countries
+                
+            }
+        }
+    }
 }
 
 extension ViewController: UICollectionViewDataSource {

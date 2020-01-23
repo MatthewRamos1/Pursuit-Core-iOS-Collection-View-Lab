@@ -33,16 +33,4 @@ extension Country {
         numberFormatter.numberStyle = .decimal
         return numberFormatter.string(from: NSNumber(value:population)) ?? "Error"
     }
-    
-    static func getCountries() -> [Country] {
-        
-        let data = Bundle.readJSONData(filename: "countryData", ext: "json")
-        var countries = [Country]()
-        do {
-            countries = try JSONDecoder().decode([Country].self, from: data)
-        } catch {
-            fatalError("Cant parse data: \(error)")
-        }
-        return countries
-    }
 }
