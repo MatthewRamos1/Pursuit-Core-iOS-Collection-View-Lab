@@ -87,9 +87,9 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 
 extension ViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard !searchBar.text!.isEmpty else {
+        guard let query = searchBar.text, !query.isEmpty else {
             return getCountries()
         }
-        searchQuery = searchBar.text!
+        searchQuery = query
     }
 }
