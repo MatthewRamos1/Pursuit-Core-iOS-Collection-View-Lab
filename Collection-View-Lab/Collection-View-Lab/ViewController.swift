@@ -20,7 +20,11 @@ class ViewController: UIViewController {
             }
         }
     }
-    var originalCountries = [Country]()
+    var searchQuery = ""{
+        didSet{
+            countries = countries.filter{ $0.name.contains(searchQuery)}
+        }
+    }
     
     
     override func viewDidLoad() {
@@ -29,7 +33,10 @@ class ViewController: UIViewController {
         collectionView.delegate = self
         searchBar.delegate = self
         getCountries()
+        
+        
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let detailVC = segue.destination as? DetailViewController, let indexPath = collectionView.indexPath(for: sender as! CountryCell) else {
@@ -42,7 +49,9 @@ class ViewController: UIViewController {
         CountryAPIClient.fetchCountries{ [weak self] (result) in
             switch result {
             case .failure(let appError):
-                
+                DispatchQueue.main.async {
+                    self?.showAlert(title: "Error", message: "Couldn't load country data: \(appError)")
+                }
             case .success(let countries):
                 self?.countries = countries
                 
@@ -78,10 +87,9 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 
 extension ViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchQuery = searchBar.text, !searchQuery.isEmpty else {
-            countries = originalCountries
-            return
+        guard !searchBar.text!.isEmpty else {
+            return getCountries()
         }
-        countries = originalCountries .filter{ $0.name.contains(searchQuery)}
+        searchQuery = searchBar.text!
     }
 }
